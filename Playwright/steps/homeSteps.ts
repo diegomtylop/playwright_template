@@ -2,8 +2,8 @@ import { expect } from "@playwright/test";
 import { Given, When, Then } from "./fixtures";
 
 //Preconditions
-Given("I am on the home page {string}", async ({ homePage }, url: string) => {
-    await homePage.navigate(url);
+Given("I am on the home page", async ({ homePage }) => {
+    await homePage.navigate();
 });
 
 //Actions

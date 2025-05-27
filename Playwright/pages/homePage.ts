@@ -4,17 +4,15 @@ import { CookieOverlay } from "./subpages/CookieOverlay";
 
 export class HomePage extends BasePage {
     readonly cookieOverlay: CookieOverlay;
-    readonly title: Locator;
 
     constructor(page: Page) {
         super(page);
         this.cookieOverlay = new CookieOverlay(page);
-        this.title = page.locator("div");
     }
 
-    async navigate(url: string) {
-        await this.page.goto(url);
-        await this.title.first().waitFor();
+    async navigate() {
+        await this.page.goto("/");
+        await this.page.title();
     }
 
     async performAction() {

@@ -6,7 +6,7 @@ export class CookieOverlay extends BasePage {
 
     constructor(page: Page) {
         super(page);
-        this.acceptCookiesButton = page.getByText("Accept Cookies");
+        this.acceptCookiesButton = page.getByText("Allow All").first();
     }
 
     async acceptCookies(){
