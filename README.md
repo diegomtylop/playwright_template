@@ -16,6 +16,13 @@ npx playwright install
 npx bddgen
 ```
 
+# Initial setup
+Create a file named `.env` on the root of the repo and define the variable "BASE_URL" to the base url for the application you want to test
+```bash
+#Install dependencies
+BASE_URL=<URL_FOR_HOME_PAGE>
+```
+
 ### Running the tests on a specific browser (by default they are executed in parallel)
 ```bash
 npx playwright test --project chromium
