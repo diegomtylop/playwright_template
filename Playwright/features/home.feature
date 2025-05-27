@@ -1,4 +1,4 @@
-Feature: Vehicle search
+Feature: Mock Feature
     As a user I should be able to search vehicles
 
   @smoke @precondition
