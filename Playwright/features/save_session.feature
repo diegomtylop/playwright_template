@@ -3,5 +3,5 @@ Feature: Manual Escenario to Save session
 
 @smoke @precondition
   Scenario: Save session
-    Given I am on the home page "https://www.amazon.com/-/es/"
+    Given I am on the home page "www.perficient.com"
     Then I save session
