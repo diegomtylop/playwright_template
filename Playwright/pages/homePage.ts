@@ -12,13 +12,17 @@ export class HomePage extends BasePage {
         this.title = page.locator("div");
     }
 
-    async navigate() {
-        await this.page.goto("/");
+    async navigate(url: string) {
+        await this.page.goto(url);
         await this.title.first().waitFor();
     }
 
     async performAction() {
         console.log("Performing action");
+    }
+
+    async saveSession(filePath: string = "session.json") {
+        await this.page.context().storageState({ path: filePath });
     }
 
     async validate() {

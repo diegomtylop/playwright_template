@@ -3,6 +3,6 @@ Feature: Vehicle search
 
   @smoke @precondition
   Scenario: Mock scenario
-    Given I am on the home page
+    Given I am on the home page "https://www.amazon.com/-/es/"
     When I perform an action
     Then I expect an outcome
