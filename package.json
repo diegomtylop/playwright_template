@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "scripts": {
     "test": "npx bddgen && npx playwright test -g",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",  
+    "test:clean": "rm -rf test-results cucumber-report && npx playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

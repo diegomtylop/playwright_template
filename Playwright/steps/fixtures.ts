@@ -1,25 +1,31 @@
-import { test as base, createBdd } from 'playwright-bdd';
-import { HomePage } from '@pages/homePage';
-import  fs  from 'fs';
+import { test as base, createBdd } from "playwright-bdd";
+import { HomePage } from "@pages/homePage";
+import { ContactPage } from "@pages/contactPage";
+import fs from "fs";
 
 export type TestData = {
-  homePage: HomePage
-}
+    homePage: HomePage;
+    contactPage: ContactPage;
+};
 
 export const test = base.extend<TestData>({
-  homePage: async ({ browser }, use) => {
+    homePage: async ({ browser }, use) => {
+        let context;
 
-    let context;
-    
-    if (fs.existsSync('session.json')) {
-      context = await browser.newContext({ storageState: 'session.json' });
-    } else {
-      context = await browser.newContext();
-    }
-    
-    const page = await context.newPage(); 
+        if (fs.existsSync("session.json")) {
+            context = await browser.newContext({
+                storageState: "session.json",
+            });
+        } else {
+            context = await browser.newContext();
+        }
 
-    await use(new HomePage(page));
-  }
+        const page = await context.newPage();
+
+        await use(new HomePage(page));
+    },
+    contactPage: async ({ page }, use) => {
+        await use(new ContactPage(page));
+    },
 });
 export const { Given, When, Then } = createBdd(test);
