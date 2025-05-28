@@ -27,6 +27,10 @@ BASE_URL=<URL_FOR_HOME_PAGE>
 npx playwright test --project chromium
 ```
 
+### Running specific feature
+```bash
+$env:FEATURE="Playwright/features/name_of_feature.feature"; npm run test:feature
+```
 
 ### Filtering by tags
 ```bash
