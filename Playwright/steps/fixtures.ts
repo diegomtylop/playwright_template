@@ -1,11 +1,13 @@
 import { test as base, createBdd } from "playwright-bdd";
 import { HomePage } from "@pages/homePage";
 import { ContactPage } from "@pages/contactPage";
+import { SearchPage } from '@pages/searchPage';
 import fs from "fs";
 
 export type TestData = {
     homePage: HomePage;
     contactPage: ContactPage;
+    searchPage: SearchPage;
 };
 
 export const test = base.extend<TestData>({
@@ -19,10 +21,11 @@ export const test = base.extend<TestData>({
         } else {
             context = await browser.newContext();
         }
-
-        const page = await context.newPage();
-
-        await use(new HomePage(page));
+const page = await context.newPage();
+    await use(new HomePage(page));
+  },
+      searchPage: async ({ page }, use) => {
+        await use(new SearchPage(page));
     },
     contactPage: async ({ page }, use) => {
         await use(new ContactPage(page));
