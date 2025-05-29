@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "test": "npx bddgen && npx playwright test -g",
-    "test:feature": "npx bddgen && npx playwright test %FEATURE% --project=chromium"
+    "test:feature": "npx bddgen && npx playwright test %FEATURE% --project=chromium",
     "test:clean": "rm -rf test-results cucumber-report && npx playwright test"
   },
   "devDependencies": {
