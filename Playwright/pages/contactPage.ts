@@ -24,6 +24,10 @@ export class ContactPage extends BasePage {
     readonly companyError: Locator;
     readonly countryError: Locator;
     readonly messageError: Locator;
+    readonly officeLocationIcon: Locator;
+    readonly bogotaButton: Locator;
+    readonly officeLocationHeading: Locator;
+    readonly officeLocationParagraph: Locator;
 
     constructor(page: Page) {
         super(page);
@@ -69,6 +73,19 @@ export class ContactPage extends BasePage {
         );
         this.messageError = page.locator(
             "#fxb_707ece81-9a56-434c-9b8a-cfd406a472f7_Fields_517e6f72-eb2c-424a-90d1-9986a543d1ac__Value-error"
+        );
+        this.officeLocationIcon = this.page
+            .locator('svg[data-name="Layer 1"]')
+            .nth(2);
+        this.bogotaButton = this.page.locator(
+            'a[href="/contact/bogota-colombia-edificio-calle-100"]'
+        );
+        this.officeLocationHeading = this.page.locator("h1.heading-three", {
+            hasText: "Bogotá, Colombia",
+        });
+        this.officeLocationParagraph = this.page.locator(
+            "p.location-map-card-content",
+            { hasText: "Bogotá, Colombia" }
         );
     }
 
@@ -141,5 +158,18 @@ export class ContactPage extends BasePage {
 
     async submitFormWithoutFillingFields() {
         await this.submitButton.click();
+    }
+
+    async findOfficeLocation() {
+        await this.officeLocationIcon.click();
+        await this.bogotaButton.click();
+    }
+
+    async validateOfficeLocation() {
+        await expect(this.officeLocationHeading).toBeVisible();
+        await expect(this.officeLocationParagraph).toBeVisible();
+        await expect(this.officeLocationParagraph).toHaveText(
+            /Bogotá, Colombia|Edificio Calle 100|Piso 11/
+        );
     }
 }
