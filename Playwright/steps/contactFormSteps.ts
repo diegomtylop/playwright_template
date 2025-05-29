@@ -16,7 +16,7 @@ When(
     }
 );
 
-When("the user search for a office location", async ({ contactPage }) => {
+When("the user search for an office location", async ({ contactPage }) => {
     await contactPage.findOfficeLocation();
 });
 
@@ -27,7 +27,7 @@ Then(
     }
 );
 
-Then("the form is completed", async ({ contactPage }) => {
+Then("the form is complete", async ({ contactPage }) => {
     await contactPage.validateSubmitButton();
 });
 
