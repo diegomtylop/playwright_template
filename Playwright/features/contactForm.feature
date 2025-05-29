@@ -13,3 +13,10 @@ Feature: complete contact form
     Given the user navigate to contact form page
     When the user tries to submit the form without filling any fields
     Then the error messages are displayed for each required field
+
+
+  @smoke @precondition
+  Scenario: find office location
+    Given the user navigate to contact form page
+    When the user search for a office location
+    Then the office location Bogota is displayed
