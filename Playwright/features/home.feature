@@ -3,6 +3,6 @@ Feature: Mock Feature
 
   @smoke @precondition
   Scenario: Mock scenario
-    Given I am on the home page
+    Given the user is on the home page
     When I perform an action
     Then I expect an outcome
