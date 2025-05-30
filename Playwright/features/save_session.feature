@@ -3,5 +3,5 @@ Feature: Manual Escenario to Save session
 
 @smoke @precondition
   Scenario: Save session
-    Given I am on the home page
+    Given the user is on the home page
     Then I save session
