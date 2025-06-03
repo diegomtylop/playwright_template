@@ -19,7 +19,7 @@ export default defineConfig({
         //geolocation: { latitude: 0, longitude: 0 },
         headless: false,
         ignoreHTTPSErrors: true,
-        video: "on-first-retry",
+        video: "retain-on-failure",
         screenshot: "on",
         trace: "retain-on-failure",
         actionTimeout: 10000,
