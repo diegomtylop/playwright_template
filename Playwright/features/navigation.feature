@@ -1,5 +1,6 @@
 Feature: Navigation Feature
 
+  @smoke
   Scenario: Who We Are Menu Options
     Given the user is on the home page
     When the user hover on 'Who We Are' menu
@@ -11,7 +12,7 @@ Feature: Navigation Feature
     When the user clicks on 'Leadership' on menu 'Who We Are'
     Then the 'Leadership' page is displayed
 
-  @develop
+  @smoke
   Scenario Outline: Whe We Are Menu
     Given the user is on the home page
     When the user hover on "<menu_option>" menu
@@ -28,7 +29,7 @@ Feature: Navigation Feature
       | Industries And Functions | Automotive                  | Automotive                  |
       | Insights                 | Blogs                       | Blogs                       |
 
-  @develop
+  @smoke
   Scenario Outline: Footer menu
     Given the user is on the home page
     When the user clicks on "<page>" footer
