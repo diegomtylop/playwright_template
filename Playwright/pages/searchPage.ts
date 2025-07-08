@@ -23,7 +23,7 @@ export class SearchPage extends BasePage {
         const topicsCount = await this.topicsList.count();
         for (let i = 0; i < topicsCount; ++i) {
             const text = await this.topicsList.nth(i).textContent();
-            if (text.trim() === searchWord) {
+            if ((text ?? "").trim() === searchWord) {
                 await this.topicsList.nth(i).click();
                 break;
             }
