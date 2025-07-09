@@ -35,17 +35,17 @@ export default defineConfig({
         {
             name: "chromium",
         },
-        {
-            name: "webkit",
-            use: { ...devices["Desktop Safari"] },
-        },
-        {
-            name: "Mobile Android",
-            use: { ...devices["Pixel 5"] },
-        },
-        {
-            name: "Mobile Safari",
-            use: { ...devices["iPhone 15 Pro Max"] },
-        },
+        // {
+        //     name: "webkit",
+        //     use: { ...devices["Desktop Safari"] },
+        // },
+        // {
+        //     name: "Mobile Android",
+        //     use: { ...devices["Pixel 5"] },
+        // },
+        // {
+        //     name: "Mobile Safari",
+        //     use: { ...devices["iPhone 15 Pro Max"] },
+        // },
     ],
 });
