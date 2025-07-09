@@ -1,5 +1,5 @@
-import { type Locator, type Page } from '@playwright/test';
-import { BasePage } from '../BasePage';
+import { type Locator, type Page, expect } from "@playwright/test";
+import { BasePage } from "../BasePage";
 
 export class CookieOverlay extends BasePage {
     readonly acceptCookiesButton: Locator;
@@ -9,7 +9,14 @@ export class CookieOverlay extends BasePage {
         this.acceptCookiesButton = page.getByText("Allow All").first();
     }
 
-    async acceptCookies(){
-        await this.acceptCookiesButton.click();
+    async acceptCookies() {
+        if (
+            await this.acceptCookiesButton
+                .isVisible({ timeout: 2000 })
+                .catch(() => false)
+        ) {
+            await this.acceptCookiesButton.click();
+        }
+        // else: modal not present, continue
     }
 }
