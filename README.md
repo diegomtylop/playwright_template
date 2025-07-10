@@ -75,3 +75,86 @@ npx playwright test --project 'chromium' -g @smoke --reporter=html --trace on
 ```bash
 npx playwright test --ui
 ```
+## Installing GitHub Copilot in Visual Studio Code
+
+1. **Open Visual Studio Code.**
+
+2. **Go to the Extensions view:**
+   - Click the Extensions icon on the Activity Bar on the side of VS Code  
+     ![Extensions Icon](./docs/screenshots/vscode-extensions-icon.png)
+
+3. **Search for "GitHub Copilot":**
+   - In the Extensions search bar, type `GitHub Copilot`  
+     ![Search Copilot](./docs/screenshots/vscode-search-copilot.png)
+
+4. **Install the extension:**
+   - Click on the "GitHub Copilot" extension from GitHub and then click the **Install** button  
+     ![Install Copilot](./docs/screenshots/vscode-install-copilot.png)
+
+5. **Sign in with your GitHub account if prompted.**
+
+### Installing GitHub Copilot Chat
+
+1. **Go to the Extensions view in Visual Studio Code.**
+2. **Search for "GitHub Copilot Chat":**
+   - In the Extensions search bar, type `GitHub Copilot Chat`.
+3. **Install the extension:**
+   - Click on the "GitHub Copilot Chat" extension from GitHub and then click the **Install** button.
+   - ![Install Copilot Chat](https://docs.github.com/assets/images/help/copilot/copilot-chat-vscode-extension.png)
+4. **Sign in with your GitHub account if prompted.**
+
+## Playwright MCP Installation and Setup
+
+1. **Install Playwright MCP Server as a dev dependency:**
+   ```bash
+   npm install --save-dev @executeautomation/playwright-mcp-server
+   ```
+
+2. **Configure MCP in your VS Code settings:**
+   - Open (or create) `.vscode/settings.json` or your global `settings.json`.
+   - Add the following configuration:
+     ```jsonc
+     "mcp": {
+       "servers": {
+         "playwright": {
+           "command": "npx",
+           "args": ["-y", "@executeautomation/playwright-mcp-server"]
+         }
+       }
+     }
+     ```
+   - Example (VS Code settings):
+     ![MCP Settings Example](image.png)
+   - In this project, this is already set in your global/user `settings.json`.
+
+3. **Start the MCP server (if not started automatically by your tools):**
+   ```bash
+   npx @executeautomation/playwright-mcp-server
+   ```
+   - Or, simply use the MCP features in VS Code and the extension will start the server as needed.
+
+4. **Usage:**
+   - Once installed and configured, you can use Playwright MCP features (such as site navigation, DOM inspection, and code generation) directly from your VS Code environment.
+
+## Agents vs MCP: What’s the Difference and Why It Matters
+
+**MCP (Model Context Protocol):**
+- MCP is a protocol and server that enables tools (like Playwright) to interact with your application in a structured, automated way.
+- It provides a set of APIs for navigation, DOM inspection, code generation, and more, allowing for deep integration with your test environment.
+- MCP is typically used as a backend service that powers advanced automation and code generation features in your IDE or CI/CD pipeline.
+
+**Agents:**
+- Agents are intelligent, task-oriented assistants that use MCP (or similar protocols) to perform complex workflows.
+- An Agent can understand high-level goals (like “generate a test for this scenario”), break them down into steps, and use MCP to interact with your app, gather information, and generate code.
+- Agents are designed to be adaptive, context-aware, and capable of making decisions or iterating based on feedback.
+
+**Key Differences:**
+- **MCP** is the protocol/server that exposes automation capabilities.
+- **Agents** are the “brains” that use MCP to accomplish user goals, orchestrating multiple steps and adapting as needed.
+- Think of MCP as the “toolbox” and Agents as the “skilled worker” who knows how to use the tools to get the job done.
+
+**Why It Matters:**
+- Using MCP alone gives you powerful automation APIs, but you must script or control them directly.
+- Using Agents (powered by MCP) lets you describe your intent in natural language and have the Agent handle the details, making automation more accessible and productive.
+
+*For more details, see [Agents vs MCP: What’s the Difference and Why It Matters](https://medium.com/@shashank_shekhar_pandey/agents-vs-mcp-whats-the-difference-and-why-it-matters-ae4ca704c16b).*
