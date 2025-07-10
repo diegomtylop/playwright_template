@@ -82,15 +82,18 @@ npx playwright test --ui
 
 2. **Go to the Extensions view:**
    - Click the Extensions icon on the Activity Bar on the side of VS Code  
-     ![Extensions Icon](./docs/screenshots/vscode-extensions-icon.png)
+   
+     ![extensions](image-2.png)
 
 3. **Search for "GitHub Copilot":**
    - In the Extensions search bar, type `GitHub Copilot`  
-     ![Search Copilot](./docs/screenshots/vscode-search-copilot.png)
+
+     ![search copilot](image-3.png)
 
 4. **Install the extension:**
-   - Click on the "GitHub Copilot" extension from GitHub and then click the **Install** button  
-     ![Install Copilot](./docs/screenshots/vscode-install-copilot.png)
+   - Click on the "GitHub Copilot" extension from GitHub and then click the **Install** button 
+
+     ![Install Copilot](image-4.png)
 
 5. **Sign in with your GitHub account if prompted.**
 
@@ -101,7 +104,9 @@ npx playwright test --ui
    - In the Extensions search bar, type `GitHub Copilot Chat`.
 3. **Install the extension:**
    - Click on the "GitHub Copilot Chat" extension from GitHub and then click the **Install** button.
-   - ![Install Copilot Chat](https://docs.github.com/assets/images/help/copilot/copilot-chat-vscode-extension.png)
+
+   - ![Install Copilot Chat](image-1.png)
+
 4. **Sign in with your GitHub account if prompted.**
 
 ## Playwright MCP Installation and Setup
@@ -125,7 +130,9 @@ npx playwright test --ui
      }
      ```
    - Example (VS Code settings):
+
      ![MCP Settings Example](image.png)
+
    - In this project, this is already set in your global/user `settings.json`.
 
 3. **Start the MCP server (if not started automatically by your tools):**
