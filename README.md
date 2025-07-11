@@ -166,3 +166,49 @@ npx playwright test --ui
 - Using Agents (powered by MCP) lets you describe your intent in natural language and have the Agent handle the details, making automation more accessible and productive.
 
 *For more details, see [Agents vs MCP: What’s the Difference and Why It Matters](https://medium.com/@shashank_shekhar_pandey/agents-vs-mcp-whats-the-difference-and-why-it-matters-ae4ca704c16b).*
+
+## Including instructions.md for an Agent
+
+To provide custom guidance to an agent (such as for Playwright MCP or Copilot), you can include an `instructions.md` (or `.instructions.md`) file. This enables the agent to follow your workflow, coding standards, and automation rules.
+
+
+1. **Create the Instructions File:**
+   - Name your file `instructions.md` or `<agent_name>.instructions.md`.
+   - Place it in a location accessible to your agent (commonly in a `prompts/` or the project root directory).
+
+2. **Write Clear Instructions:**
+   - Use markdown format.
+   - Specify the agent’s role, capabilities, and any rules or best practices.
+   - Example:
+     ```markdown
+     ---
+     applyTo: '**'
+     ---
+     You are a playwright and cucumber BDD test generator...
+     ```
+
+3. **Reference the Instructions in Your Agent Setup:**
+   - Most agent frameworks or MCP-based tools automatically detect `.instructions.md` files in standard locations.
+   - If manual configuration is needed, specify the path to your instructions file in the agent’s settings or initialization code.
+
+4. **Restart or Reload the Agent:**
+   - After adding or updating the instructions file, restart the agent or reload your IDE/extension to ensure the new instructions are loaded.
+
+5. **Verify Agent Behavior:**
+   - Test the agent by giving it a relevant task.
+   - Confirm it follows the custom instructions (e.g., reviews the project, avoids code duplication, uses MCP tools, etc.).
+
+#### Example Directory Structure
+```
+Playwright/
+  prompts/
+    copilot-instructions.instructions.md
+  features/
+  steps/
+  pages/
+```
+
+#### Tips
+- Use comments and sections in your instructions for clarity.
+- Update instructions as your workflow or requirements change.
+- For MCP agents, instructions are typically picked up automatically if placed in the right directory.
