@@ -7,6 +7,12 @@ Project showcasing the main features of playwright
 
 
 # Installation
+
+Before installing dependencies, make sure you have Node.js installed:
+- Download Node.js from [https://nodejs.org/](https://nodejs.org/) (choose the LTS version).
+- Run the installer and follow the prompts.
+- Verify installation by running `node -v` and `npm -v` in your terminal.
+
 ```bash
 #Install dependencies
 npm install .
@@ -129,11 +135,9 @@ npx playwright test --ui
        }
      }
      ```
-   - Example (VS Code settings):
-
-     ![MCP Settings Example](image.png)
-
    - In this project, this is already set in your global/user `settings.json`.
+
+   ![MCP Settings Example](image.png)
 
 3. **Start the MCP server (if not started automatically by your tools):**
    ```bash
